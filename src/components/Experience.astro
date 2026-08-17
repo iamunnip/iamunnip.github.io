@@ -1,0 +1,137 @@
+---
+const experiences = [
+  {
+    role: "Site Reliability Engineer",
+    company: "InfraCloud Technologies - An Improving Company",
+    period: "Nov 2023 - Apr 2025",
+    location: "Remote",
+    description: "Provisioned and maintained AWS infrastructure using Terraform, enabling automated and consistent environment deployments.",
+    highlights: [
+      "Managed HashiCorp Vault across multiple environments for secure storage and dynamic management of application secrets",
+      "Implemented GitOps workflows using ArgoCD to automate continuous delivery across Kubernetes clusters",
+      "Automated AMI rotation and OS patching processes to improve security compliance and system reliability",
+      "Designed and maintained Datadog dashboards, monitors, and alerts to enhance platform observability and incident detection",
+      "Provided on-call production and non-production support, troubleshooting infrastructure and application issues to ensure high availability",
+      "Implemented multi-tenant Istio Service Mesh in OpenShift clusters with automatic sidecar injection, Ingress Gateways, and Virtual Services",
+      "Configured Egress Gateways and Service Entries to enable secure communication with external services",
+      "Implemented service mesh observability using Kiali, Prometheus, and Grafana for traffic visualization and monitoring",
+      "Enabled distributed tracing using Tempo, OpenTelemetry, and Jaeger to improve request tracing and debugging",
+      "Developed CI pipelines for building Docker images and publishing them to Harbor container registry",
+      "Managed Kubernetes deployments across environments using Kustomize overlays and ArgoCD Applications",
+      "Configured Kubernetes autoscaling using HPA and KEDA ScaledObjects to support dynamic workload scaling",
+      "Automated creation of Datadog dashboards, monitors, and synthetic tests using Terraform",
+      "Deployed and configured Kyverno policy engine using Helm to enforce Kubernetes security and governance policies",
+      "Deployed Kube Prometheus Stack (Prometheus, Alertmanager, Grafana) for cluster monitoring and alerting",
+      "Built custom Grafana dashboards using PromQL and configured alerts via Alertmanager",
+      "Secured Kubernetes policy enforcement using RBAC, Network Policies, and Istio mTLS",
+      "Integrated Kyverno CLI into GitHub Actions to automate policy validation in CI pipelines",
+      "Implemented GitOps-based policy management using ArgoCD, enabling synchronization across multiple clusters",
+      "Implemented container image verification using Trivy and Cosign to enforce trusted images",
+    ],
+    tags: ["AWS", "Terraform", "Kubernetes", "Istio", "ArgoCD", "Datadog", "Vault"],
+  },
+  {
+    role: "DevOps Engineer",
+    company: "Innovation Incubator Advisory",
+    period: "Sep 2022 - Oct 2023",
+    location: "Remote",
+    description: "Managed and maintained AWS and Azure cloud infrastructure resources, ensuring stable and scalable environments for application workloads.",
+    highlights: [
+      "Designed and maintained CI/CD pipelines using Azure DevOps, automating build, test, and deployment workflows",
+      "Deployed and managed containerized applications in Azure Kubernetes Service (AKS) using Helm charts for streamlined application releases",
+      "Administered Rancher Kubernetes Engine (RKE) clusters hosted on AWS for container orchestration and cluster lifecycle management",
+      "Implemented centralized logging and monitoring using the Elastic Stack (Elasticsearch, Logstash, Kibana) to analyze application logs and troubleshoot issues",
+      "Configured and maintained Pritunl VPN to enable secure remote access to infrastructure environments",
+      "Evaluated and adopted new DevOps tools and technologies to improve platform reliability, automation, and operational efficiency",
+    ],
+    tags: ["AWS", "Azure", "AKS", "Helm", "Elastic Stack"],
+  },
+  {
+    role: "Product Engineer - DevOps",
+    company: "Cleareye.ai",
+    period: "Dec 2020 - Sep 2022",
+    location: "Hybrid",
+    description: "Provisioned and managed Azure infrastructure using Terraform, enabling Infrastructure-as-Code for scalable and repeatable cloud deployments.",
+    highlights: [
+      "Administered Azure DevOps services, including Repos, Pipelines, Releases, and Artifacts, to support end-to-end CI/CD workflows",
+      "Developed Continuous Integration pipelines using Docker, automating application builds and container image creation",
+      "Implemented Continuous Deployment pipelines using Ansible, enabling automated configuration management and application deployments",
+      "Built and maintained custom Python packages to support internal tooling and automation workflows",
+      "Configured Traefik ingress controller with Let's Encrypt certificates and integrated Azure DNS to securely expose public application endpoints",
+      "Implemented comprehensive monitoring and observability using Elastic Stack, Prometheus, and Grafana for infrastructure and application metrics",
+      "Diagnosed and resolved CI/CD pipeline failures, improving deployment reliability and reducing downtime",
+    ],
+    tags: ["Azure", "Terraform", "Docker", "Ansible", "Python"],
+  },
+  {
+    role: "Network Support Engineer",
+    company: "E-Team Informatica",
+    period: "Aug 2017 - Dec 2020",
+    location: "On-site",
+    description: "Administered Linux and Windows servers across development, testing, staging, and production environments, ensuring system stability and availability.",
+    highlights: [
+      "Managed virtualization platforms including VMware, Xen, and Oracle VM (OVM) to support infrastructure provisioning and resource optimization",
+      "Implemented infrastructure monitoring using Nagios to track server health, performance metrics, and service availability",
+      "Diagnosed and resolved infrastructure issues using incident management procedures and documentation, minimizing service disruptions",
+      "Monitored Oracle databases and middleware components using Oracle Enterprise Manager Cloud Control 13c",
+      "Provided technical support through the OTRS ticketing system, resolving user and infrastructure incidents within defined SLAs",
+      "Managed and maintained in-house firewall configurations to ensure secure network access and traffic control",
+      "Delivered desktop support and IT asset management, including hardware provisioning, maintenance, and lifecycle tracking",
+    ],
+    tags: ["Linux", "Windows", "VMware", "Nagios", "Oracle"],
+  },
+];
+---
+
+<section id="experience" class="py-24 px-6 bg-surface/30">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 synth-glow-text">Work <span class="text-gradient">Experience</span></h2>
+    <p class="text-text-secondary max-w-2xl mb-16">
+      A timeline of my professional journey building and operating production systems.
+    </p>
+
+    <div class="relative">
+      <div class="absolute left-4 md:left-6 top-0 bottom-0 w-px bg-gradient-to-b from-accent via-neon-blue to-transparent"></div>
+
+      <div class="space-y-12">
+        {experiences.map((exp, i) => (
+          <div class="relative pl-12 md:pl-16">
+            <div class={`absolute left-2.5 md:left-4.5 top-1.5 w-3 h-3 rounded-full border-2 z-10 ${i === 0 ? 'bg-accent border-accent shadow-[0_0_10px_rgba(255,42,109,0.6)]' : 'bg-primary border-neon-blue/50'}`}></div>
+
+            <div class="synth-border rounded-xl p-6 transition-all duration-300">
+              <div class="flex flex-wrap items-start justify-between gap-2 mb-3">
+                <div>
+              <h3 class="text-xl font-bold text-text-primary">{exp.role}</h3>
+              <p class="text-accent font-medium">{exp.company}</p>
+              {exp.location && <p class="text-neon-blue text-xs mt-1">{exp.location}</p>}
+                </div>
+                <span class="font-mono text-xs text-text-secondary bg-surface-light/50 px-3 py-1 rounded-full">
+                  {exp.period}
+                </span>
+              </div>
+
+              <p class="text-text-secondary text-sm mb-4">{exp.description}</p>
+
+              <ul class="space-y-2 mb-4">
+                {exp.highlights.map((item) => (
+                  <li class="flex items-start gap-2 text-sm text-text-secondary">
+                    <span class="text-neon-blue mt-1 flex-shrink-0">▸</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="flex flex-wrap gap-2">
+                {exp.tags.map((tag) => (
+                  <span class="px-2 py-0.5 text-xs font-mono text-accent/80 bg-accent/5 border border-accent/20 rounded">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

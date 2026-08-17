@@ -1,0 +1,71 @@
+---
+const projects = [
+  {
+    title: "Multi-Region Observability Platform",
+    description: "Designed and built a unified observability platform consolidating metrics, logs, and traces across 3 cloud regions. Reduced mean-time-to-detection from 15 minutes to under 60 seconds.",
+    metrics: { detection: "< 60s", coverage: "100%", cost: "-40%" },
+    tags: ["Prometheus", "Grafana", "OpenTelemetry", "Thanos", "Go"],
+    link: "#",
+  },
+  {
+    title: "Zero-Downtime Migration Framework",
+    description: "Built an automated migration framework that seamlessly moved 200+ microservices from legacy VMs to Kubernetes with zero downtime. Included automated canary analysis and rollback.",
+    metrics: { services: "200+", downtime: "0s", time: "3 months" },
+    tags: ["Kubernetes", "Istio", "ArgoCD", "Terraform", "Python"],
+    link: "#",
+  },
+  {
+    title: "Chaos Engineering Platform",
+    description: "Implemented a chaos engineering platform that proactively identified failure modes before they caused outages. Ran weekly game days across all production environments.",
+    metrics: { experiments: "200+", outages: "15 prevented", teams: "12" },
+    tags: ["Litmus", "Gremlin", "Kubernetes", "Python", "Slack API"],
+    link: "#",
+  },
+  {
+    title: "Self-Healing Auto-Remediation",
+    description: "Created an intelligent auto-remediation system that automatically detected and resolved 60% of common production issues without human intervention.",
+    metrics: { autoResolved: "60%", mttr: "-70%", toil: "-50%" },
+    tags: ["Ansible", "Prometheus", "PagerDuty API", "Python", "AWS Lambda"],
+    link: "#",
+  },
+];
+---
+
+<section id="projects" class="py-24 px-6">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl sm:text-4xl font-bold mb-4 synth-glow-text">Featured <span class="text-gradient">Projects</span></h2>
+    <p class="text-text-secondary max-w-2xl mb-16">
+      Key projects that demonstrate my approach to solving complex reliability challenges.
+    </p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      {projects.map((project) => (
+        <div class="group synth-border rounded-xl p-6 glow-hover transition-all duration-300">
+          <h3 class="text-xl font-bold mb-3 text-text-primary group-hover:text-accent transition-colors">
+            {project.title}
+          </h3>
+          <p class="text-text-secondary text-sm mb-5 leading-relaxed">
+            {project.description}
+          </p>
+
+          <div class="grid grid-cols-3 gap-3 mb-5">
+            {Object.entries(project.metrics).map(([key, value]) => (
+              <div class="bg-surface-light/30 rounded-lg p-3 text-center border border-surface-light/30">
+                <p class="text-accent font-mono font-bold text-lg">{value}</p>
+                <p class="text-text-secondary text-xs mt-1 capitalize">{key}</p>
+              </div>
+            ))}
+          </div>
+
+          <div class="flex flex-wrap gap-2">
+            {project.tags.map((tag) => (
+              <span class="px-2 py-0.5 text-xs font-mono text-neon-blue/70 bg-neon-blue/5 border border-neon-blue/15 rounded">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
