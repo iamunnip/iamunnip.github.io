@@ -15,12 +15,36 @@ const { title, description = "Site Reliability Engineer - Building resilient, sc
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+    <meta name="theme-color" content="#0d0221" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content="https://iamunnip.github.io" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content="/og-image.png" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data:; connect-src 'self';" />
+    <link rel="canonical" href="https://iamunnip.github.io" />
     <title>{title}</title>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Unni P",
+  "jobTitle": "Site Reliability Engineer",
+  "url": "https://iamunnip.github.io",
+  "sameAs": [
+    "https://linkedin.com/in/unnip",
+    "https://github.com/iamunnip"
+  ],
+  "description": "Site Reliability Engineer building resilient, scalable, and observable systems"
+}
+</script>
   </head>
   <body class="min-h-screen antialiased">
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-primary focus:rounded-lg">Skip to content</a>
     <slot />
   </body>
 </html>

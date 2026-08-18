@@ -3,7 +3,7 @@ const experiences = [
   {
     role: "Site Reliability Engineer",
     company: "InfraCloud Technologies - An Improving Company",
-    period: "Nov 2023 - Apr 2025",
+    period: "Nov 2023 - Present",
     location: "Remote",
     description: "Provisioned and maintained AWS infrastructure using Terraform, enabling automated and consistent environment deployments.",
     highlights: [
@@ -110,9 +110,11 @@ const experiences = [
                 </span>
               </div>
 
-              <p class="text-text-secondary text-sm mb-4">{exp.description}</p>
-
               <ul class="space-y-2 mb-4">
+                  <li class="flex items-start gap-2 text-sm text-text-secondary">
+                    <span class="text-neon-blue mt-1 flex-shrink-0">▸</span>
+                    <span>{exp.description}</span>
+                  </li>
                 {exp.highlights.map((item) => (
                   <li class="flex items-start gap-2 text-sm text-text-secondary">
                     <span class="text-neon-blue mt-1 flex-shrink-0">▸</span>

@@ -1,5 +1,21 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Regular-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Space Mono";
+  src: url("/fonts/SpaceMono-Bold-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-primary: #0d0221;
   --color-accent: #ff2a6d;
@@ -18,14 +34,6 @@ html {
 }
 
 body {
-  font-family: var(--font-mono);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-mono);
-}
-
-p, span, li, a, div, button {
   font-family: var(--font-mono);
 }
 
@@ -97,4 +105,13 @@ p, span, li, a, div, button {
 
 .synth-glow-text {
   text-shadow: 0 0 10px rgba(255, 42, 109, 0.5), 0 0 30px rgba(5, 217, 232, 0.3);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
