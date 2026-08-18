@@ -1,6 +1,18 @@
 ---
 const projects = [
   {
+    title: "Ephemeral Preview Environments",
+    description: "Built an automated per-PR preview environment system that spins up isolated Kubernetes namespaces with full application stacks on every pull request and tears them down on merge, giving developers instant production-like testing.",
+    metrics: { spinUp: "< 5 min", cost: "-60%", feedback: "Real-time" },
+    tags: ["Kubernetes", "ArgoCD", "Helm", "GitHub Actions", "DNS"],
+  },
+  {
+    title: "GitOps Promotion Pipeline with Kargo",
+    description: "Designed and implemented automated multi-stage promotion pipelines using Kargo, enabling seamless Progressive Delivery across dev, staging, and production environments with automated canary analysis and manual approval gates.",
+    metrics: { environments: "4 stages", deployFreq: "Daily", rollback: "< 2 min" },
+    tags: ["Kargo", "ArgoCD", "Kubernetes", "GitOps", "Helm"],
+  },
+  {
     title: "Multi-Region Observability Platform",
     description: "Designed and built a unified observability platform consolidating metrics, logs, and traces across 3 cloud regions. Reduced mean-time-to-detection from 15 minutes to under 60 seconds.",
     metrics: { detection: "< 60s", coverage: "100%", cost: "-40%" },
