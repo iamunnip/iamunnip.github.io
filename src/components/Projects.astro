@@ -42,7 +42,7 @@ const projects = [
 <section id="projects" class="py-24 px-6">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 synth-glow-text">Featured <span class="text-gradient">Projects</span></h2>
-    <p class="text-text-secondary max-w-2xl mb-16">
+    <p class="text-text-primary max-w-2xl mb-16">
       Key projects that demonstrate my approach to solving complex reliability challenges.
     </p>
 
@@ -52,14 +52,14 @@ const projects = [
           <h3 class="text-xl font-bold mb-3 text-text-primary group-hover:text-accent transition-colors">
             {project.title}
           </h3>
-          <p class="text-text-secondary text-sm mb-5 leading-relaxed">
+          <p class="text-text-primary text-sm mb-5 leading-relaxed">
             {project.description}
           </p>
 
           <div class="grid grid-cols-3 gap-3 mb-5">
             {Object.entries(project.metrics).map(([key, value]) => (
               <div class="bg-surface-light/30 rounded-lg p-3 text-center border border-surface-light/30">
-                <p class="text-accent font-mono font-bold text-lg">{value}</p>
+                <p class="text-accent font-sans font-bold text-lg">{value}</p>
                 <p class="text-text-secondary text-xs mt-1 capitalize">{key}</p>
               </div>
             ))}
@@ -67,7 +67,7 @@ const projects = [
 
           <div class="flex flex-wrap gap-2">
             {project.tags.map((tag) => (
-              <span class="px-2 py-0.5 text-xs font-mono text-neon-blue/70 bg-neon-blue/5 border border-neon-blue/15 rounded">
+              <span class="px-2 py-0.5 text-xs font-sans text-teal bg-teal/5 border border-teal/15 rounded">
                 {tag}
               </span>
             ))}

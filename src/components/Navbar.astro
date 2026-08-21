@@ -1,23 +1,25 @@
 ---
 const navLinks = [
-  { label: "About", href: "#about" },
-  { label: "Skills", href: "#skills" },
-  { label: "Experience", href: "#experience" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
+  { label: "About", href: "/#about" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Contact", href: "/#contact" },
+  { label: "Blog", href: "/blog" },
+  { label: "Docs", href: "/docs" },
 ];
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/80 backdrop-blur-lg border-b border-neon-blue/10" aria-label="Main navigation">
   <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="/" class="font-mono text-neon-blue font-medium text-lg tracking-tight hover:text-accent transition-colors synth-glow-text">
+    <a href="/" class="font-sans text-neon-blue font-medium text-lg tracking-tight hover:text-accent transition-colors synth-glow-text">
       Unni P
     </a>
     <div class="hidden md:flex items-center gap-8">
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-text-secondary hover:text-neon-blue text-sm font-medium transition-colors duration-200"
+          class="text-text-primary hover:text-neon-blue text-sm font-medium transition-colors duration-200"
         >
           {link.label}
         </a>
@@ -40,7 +42,7 @@ const navLinks = [
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class="text-text-secondary hover:text-neon-blue text-sm font-medium transition-colors duration-200"
+          class="text-text-primary hover:text-neon-blue text-sm font-medium transition-colors duration-200"
         >
           {link.label}
         </a>
@@ -49,25 +51,4 @@ const navLinks = [
   </div>
 </nav>
 
-<script>
-  const btn = document.getElementById('mobile-menu-btn');
-  const menu = document.getElementById('mobile-menu');
-  btn?.addEventListener('click', () => {
-    menu?.classList.toggle('hidden');
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-  });
-  menu?.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menu?.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
-    });
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !menu?.classList.contains('hidden')) {
-      menu?.classList.add('hidden');
-      btn?.setAttribute('aria-expanded', 'false');
-      btn?.focus();
-    }
-  });
-</script>
+<script src="/navbar.js" is:inline></script>
