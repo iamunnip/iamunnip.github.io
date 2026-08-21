@@ -1,0 +1,61 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import '../../styles/global.css';
+
+const allPosts = await getCollection('blog', ({ data }) => import.meta.env.PROD ? !data.draft : true);
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+
+<BaseLayout title="Blog - Unni P" description="Technical writing from Unni P, Site Reliability Engineer.">
+  <Navbar />
+  <main id="main-content">
+    <section class="min-h-screen pt-32 pb-24 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h1 class="text-3xl sm:text-4xl font-bold mb-4 synth-glow-text">
+          Blog
+        </h1>
+        <p class="text-text-secondary max-w-2xl mb-16">
+          Notes on infrastructure, incidents, and tools.
+        </p>
+
+        {posts.length === 0 ? (
+          <p class="text-text-secondary">No posts yet. Check back soon.</p>
+        ) : (
+          <div class="space-y-6">
+            {posts.map((post) => (
+              <a
+                href={`/blog/${post.id}/`}
+                class="block synth-border rounded-xl p-6 glow-hover transition-all duration-300"
+              >
+                <div class="flex flex-wrap items-baseline justify-between gap-2 mb-2">
+                  <h2 class="text-xl font-bold text-text-primary">{post.data.title}</h2>
+                  <time datetime={post.data.pubDate.toISOString()} class="font-sans text-xs text-text-secondary">
+                    {dateFormatter.format(post.data.pubDate)}
+                  </time>
+                </div>
+                <p class="text-text-primary text-sm mb-4 leading-relaxed">
+                  {post.data.description}
+                </p>
+                {post.data.tags.length > 0 && (
+                  <div class="flex flex-wrap gap-2">
+                    {post.data.tags.map((tag) => (
+                      <span class="px-2 py-0.5 text-xs font-sans text-teal bg-teal/5 border border-teal/15 rounded">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+  <Footer />
+</BaseLayout>
