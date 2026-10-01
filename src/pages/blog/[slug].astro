@@ -73,6 +73,19 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
     margin-bottom: 1rem;
     padding-left: 1.5rem;
   }
+  .prose-content :global(ul) {
+    list-style-type: disc;
+  }
+  .prose-content :global(ol) {
+    list-style-type: decimal;
+  }
+  .prose-content :global(ul ul) {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+  }
+  .prose-content :global(li::marker) {
+    color: var(--color-accent);
+  }
   .prose-content :global(li) {
     margin-bottom: 0.5rem;
   }
@@ -98,6 +111,25 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
   .prose-content :global(pre code) {
     background: none;
     padding: 0;
+  }
+  .prose-content :global(table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+  }
+  .prose-content :global(th),
+  .prose-content :global(td) {
+    border: 1px solid var(--color-surface-light);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-content :global(th) {
+    background: var(--color-surface);
+    font-weight: 600;
   }
   .prose-content :global(blockquote) {
     border-left: 2px solid var(--color-accent);
