@@ -112,6 +112,25 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
     background: none;
     padding: 0;
   }
+  .prose-content :global(table) {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    font-size: 0.9375rem;
+  }
+  .prose-content :global(th),
+  .prose-content :global(td) {
+    border: 1px solid var(--color-surface-light);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+    vertical-align: top;
+  }
+  .prose-content :global(th) {
+    background: var(--color-surface);
+    font-weight: 600;
+  }
   .prose-content :global(blockquote) {
     border-left: 2px solid var(--color-accent);
     padding-left: 1rem;
