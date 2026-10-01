@@ -73,6 +73,19 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { year: 'numeric', month:
     margin-bottom: 1rem;
     padding-left: 1.5rem;
   }
+  .prose-content :global(ul) {
+    list-style-type: disc;
+  }
+  .prose-content :global(ol) {
+    list-style-type: decimal;
+  }
+  .prose-content :global(ul ul) {
+    list-style-type: circle;
+    margin-top: 0.5rem;
+  }
+  .prose-content :global(li::marker) {
+    color: var(--color-accent);
+  }
   .prose-content :global(li) {
     margin-bottom: 0.5rem;
   }
