@@ -1,0 +1,67 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import Prose from '../../components/Prose.astro';
+import '../../styles/global.css';
+
+// Only projects with a write-up (a Markdown/MDX body) get their own page.
+export async function getStaticPaths() {
+  const projects = await getCollection('projects', ({ data, body }) =>
+    (import.meta.env.PROD ? !data.draft : true) && Boolean(body?.trim()));
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { title, description, metrics, tags, repo, link } = project.data;
+---
+
+<BaseLayout title={`${title} - Unni P`} description={description}>
+  <Navbar />
+  <main id="main-content">
+    <article class="min-h-screen pt-32 pb-24 px-6">
+      <div class="max-w-3xl mx-auto">
+        <a href="/#projects" class="text-neon-blue text-sm hover:text-accent transition-colors">&larr; Back to Projects</a>
+
+        <h1 class="text-3xl sm:text-4xl font-bold mt-6 mb-4 synth-glow-text">{title}</h1>
+
+        <p class="text-text-primary mb-6 leading-relaxed">{description}</p>
+
+        {Object.keys(metrics).length > 0 && (
+          <div class="grid grid-cols-3 gap-3 mb-6">
+            {Object.entries(metrics).map(([key, value]) => (
+              <div class="bg-surface-light/30 rounded-lg p-3 text-center border border-surface-light/30">
+                <p class="text-accent font-sans font-bold text-lg">{value}</p>
+                <p class="text-text-secondary text-xs mt-1 capitalize">{key}</p>
+              </div>
+            ))}
+          </div>
+        )}
+
+        <div class="flex flex-wrap items-center gap-4 mb-10">
+          {tags.length > 0 && (
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span class="px-2 py-0.5 text-xs font-sans text-teal bg-teal/5 border border-teal/15 rounded">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          )}
+          {repo && <a href={repo} class="text-neon-blue text-sm hover:text-accent transition-colors" rel="noopener noreferrer">Source</a>}
+          {link && <a href={link} class="text-neon-blue text-sm hover:text-accent transition-colors" rel="noopener noreferrer">Live</a>}
+        </div>
+
+        <Prose>
+          <Content />
+        </Prose>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</BaseLayout>
