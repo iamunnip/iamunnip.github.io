@@ -7,6 +7,7 @@ const projects = (await getCollection('projects', ({ data }) => import.meta.env.
   .map((entry) => ({ ...entry.data, href: entry.body?.trim() ? `/projects/${entry.id}/` : null }));
 ---
 
+{projects.length > 0 && (
 <section id="projects" class="py-24 px-6">
   <div class="max-w-6xl mx-auto">
     <h2 class="text-3xl sm:text-4xl font-bold mb-4 synth-glow-text">Featured <span class="text-gradient">Projects</span></h2>
@@ -45,3 +46,4 @@ const projects = (await getCollection('projects', ({ data }) => import.meta.env.
     </div>
   </div>
 </section>
+)}

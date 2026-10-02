@@ -92,6 +92,12 @@ drafts are hidden in production.
   `/projects/` index page.
 - **Images:** in `src/content/projects/<slug>/`, linked as
   `./<slug>/<file>.png`.
+- **No projects = no Projects UI.** With no published project files (the
+  folder only keeps a `.gitkeep`), the home page hides the Projects section,
+  the navbar's Projects link and the hero's "View My Work" button. Adding a
+  project file brings all three back. Astro then prints a harmless "collection
+  projects is empty" notice during builds. After deleting project files, clear
+  the content cache (see below) or the old cards may linger.
 
 ## Writing style (blog posts and project write-ups)
 
