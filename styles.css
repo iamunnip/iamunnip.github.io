@@ -201,15 +201,15 @@ h2 {
   list-style: none;
 }
 
-.career li {
+.career > li {
   position: relative;
   padding: 0 0 1.75rem 1.5rem;
   border-left: 1px solid var(--line);
 }
 
-.career li:last-child { padding-bottom: 0; }
+.career > li:last-child { padding-bottom: 0; }
 
-.career li::before {
+.career > li::before {
   content: "";
   position: absolute;
   left: -0.3rem;
@@ -220,7 +220,7 @@ h2 {
   background: var(--line);
 }
 
-.career li.current::before { background: var(--accent); }
+.career > li.current::before { background: var(--accent); }
 
 .career h3 {
   margin: 0;
@@ -244,6 +244,34 @@ h2 {
   font-weight: 500;
   vertical-align: 0.1em;
   white-space: nowrap;
+}
+
+.career .meta {
+  font-size: 0.9375rem;
+}
+
+.career ul {
+  margin: 0.6rem 0 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.career ul li { margin-top: 0.35rem; }
+
+.career details { margin-top: 0.75rem; }
+
+.career summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.career summary:hover { color: var(--accent); }
+
+.career summary:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
 }
 
 /* Skills */
