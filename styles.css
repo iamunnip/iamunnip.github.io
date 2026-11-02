@@ -89,8 +89,6 @@ a:focus-visible {
   text-decoration: none;
 }
 
-.brand span { color: var(--accent); }
-
 nav { display: flex; gap: 1.25rem; }
 
 nav a {
